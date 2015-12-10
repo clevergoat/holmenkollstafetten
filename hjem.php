@@ -9,9 +9,9 @@ Template Name: Hjem
 	
 	<div class="container">
 	<div class="logo columns float-center" style="text-align: center; padding: 50px 0;">
-		<img src="/hks/wp-content/uploads/hk_logo.png">
+		<img src="/wp-content/uploads/hk_logo.png">
 	</div>
-	<div class="show-for-medium" style="margin-bottom: 50px; height: 800px; background: url(/hks/wp-content/uploads/bakgrunn.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
+	<div class="show-for-medium" style="margin-bottom: 50px; height: 800px; background: url(/wp-content/uploads/bakgrunn.jpg); background-position: center; background-size: cover; background-repeat: no-repeat;">
 			
 	</div>
 
