@@ -10,40 +10,40 @@
 					<div class="row small-up-3 medium-up-6 large-up-6" style="padding: 40px 0 30px;">
 
   <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/yt.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="i" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/2.jpg" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/16.jpg" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/backe.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/TOMTOM_Logo_NO_R.jpg" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/19.jpg" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/kreftforeningen_logo_cmyk.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/hyundai-HKS1.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/blindeforbundet.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/rola.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/wallmans-hks.png" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="/hks/wp-content/uploads/sponsors/8.jpg" class="" alt="">
+    <img src="//placehol.it/200x200" class="" alt="">
   </div>
 </div>
 
