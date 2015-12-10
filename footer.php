@@ -10,40 +10,40 @@
 					<div class="row small-up-3 medium-up-6 large-up-6" style="padding: 40px 0 30px;">
 
   <div class="column">
-    <img src="//placehol.it/200x200" class="i" alt="">
+    <img src="//placehold.it/200x200" class="i" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
     <div class="column">
-    <img src="//placehol.it/200x200" class="" alt="">
+    <img src="//placehold.it/200x200" class="" alt="">
   </div>
 </div>
 
