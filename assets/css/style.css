@@ -4163,10 +4163,10 @@ NAVIGATION STYLES
   color: #36365d; }
 
 .dropdown.menu .is-dropdown-submenu-parent a:after {
-  margin-top: 8px; }
+  margin-top: 13px; }
 
 .dropdown.menu .is-dropdown-submenu-parent a:hover:after {
-  border-color: transparent transparent transparent #36365d; }
+  border-color: #36365d transparent transparent transparent; }
 
 /*********************
 FOOTER NAV

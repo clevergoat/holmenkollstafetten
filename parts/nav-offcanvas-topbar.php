@@ -16,7 +16,7 @@
 			<ul class="menu float-right">
 
 				<!-- <li><button class="menu-icon" type="button" data-toggle="off-canvas"></button></li> -->
-				<li><a data-toggle="off-canvas">Menu</a></li>
+				<li><a data-toggle="off-canvas">Meny</a></li>
 			</ul>
 						<div class="float-right show-for-small-only">
 				<?php mobile_lang_nav(); ?>	
