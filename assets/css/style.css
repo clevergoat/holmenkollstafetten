@@ -4097,6 +4097,14 @@ MAIN PAGE TOP
   left: 50%;
   margin: 80px 0 0 -177px;
   position: absolute; }
+  @media screen and (max-width: 31.9375em) {
+    .logo {
+      position: static;
+      text-align: center;
+      margin: 40px 0 0; }
+      .logo img {
+        margin: 0 auto;
+        display: block; } }
 
 .hoved-bg {
   background-image: url(/wp-content/uploads/bakgrunn.jpg);
@@ -4108,6 +4116,9 @@ MAIN PAGE TOP
   height: 95vh;
   height: calc(100vh - 57px);
   position: relative; }
+  @media screen and (max-width: 31.9375em) {
+    .container {
+      height: auto; } }
 
 .inner-container {
   position: absolute;
@@ -4115,6 +4126,9 @@ MAIN PAGE TOP
   bottom: 0;
   background-color: #f4f4f4;
   padding-top: 40px; }
+  @media screen and (max-width: 31.9375em) {
+    .inner-container {
+      position: static; } }
 
 /*********************
 NAVIGATION STYLES
