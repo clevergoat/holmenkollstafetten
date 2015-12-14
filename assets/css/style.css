@@ -4107,7 +4107,7 @@ MAIN PAGE TOP
         display: block; } }
 
 .hoved-bg {
-  background-image: url(/wp-content/uploads/bakgrunn.jpg);
+  background-image: url(images/bakgrunn.jpg);
   background-position: center;
   background-size: cover;
   height: 100%; }

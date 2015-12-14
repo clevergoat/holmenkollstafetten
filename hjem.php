@@ -9,7 +9,7 @@ Template Name: Hjem
 
 <div class="container">
 	<div class="logo">
-		<img src="/hks/wp-content/uploads/hk_logo.png">
+		<img src="<?php echo get_template_directory_uri(); ?>/images/hk_logo.png">
 	</div>
 	<div class="show-for-medium hoved-bg">
 	</div>
