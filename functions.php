@@ -33,6 +33,9 @@ require_once(get_template_directory().'/assets/translation/translation.php');
 // Use this as a template for custom post types
  require_once(get_template_directory().'/assets/functions/custom-post-type.php');
 
+ // Custom meta boxes for above post types
+ require_once(get_template_directory().'/assets/functions/custom-meta-boxes.php');
+
 // Customize the WordPress login menu
 // require_once(get_template_directory().'/assets/functions/login.php'); 
 

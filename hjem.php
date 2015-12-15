@@ -23,13 +23,13 @@ Template Name: Hjem
 				</a>
 			</div>
 			<div class="small-12 medium-4 large-4 columns">
-				<a href="/hks/deltagerinfo/" class="hero large expanded button">
+				<a href="deltagerinfo/" class="hero large expanded button">
 					<h2>Deltagerinfo</h2>
 					<p class="show-for-medium">Svarene til alt du lurer på</p>
 				</a>
 			</div>
 			<div class="small-12 medium-4 large-4 columns">
-				<a href="/hks/loypekart/" class="hero large expanded button">
+				<a href="loypekart/" class="hero large expanded button">
 					<h2>Løypekart</h2>
 					<p class="show-for-medium">Finn din etappe</p>
 				</a>
@@ -61,7 +61,7 @@ Template Name: Hjem
 
 
 			<div class="small-12 columns">
-				<a href="/hks/deltagerinfo/" class="hero large expanded button" style="border-bottom: 3px solid lightgray;">
+				<a href="nyheter/" class="hero large expanded button" style="border-bottom: 3px solid lightgray;">
 					<h2>Se flere nyheter</h2>
 				</a>
 			</div>

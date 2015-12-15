@@ -4107,10 +4107,11 @@ MAIN PAGE TOP
         display: block; } }
 
 .hoved-bg {
-  background-image: url(images/bakgrunn.jpg);
+  background-image: url(images/hks_background.jpg);
   background-position: center;
   background-size: cover;
-  height: 100%; }
+  height: 100%;
+  height: calc(100% - 187px); }
 
 .container {
   height: 95vh;
@@ -4207,7 +4208,8 @@ BUTTONS
   .hero p, .hero h2 {
     margin-bottom: 0; }
   .hero p {
-    color: #999; }
+    color: #999;
+    font-size: 1rem; }
   .hero h2 {
     color: #0a0a0a; }
   .hero:hover h2, .hero:hover p {
