@@ -18,14 +18,14 @@ Template Name: Hjem
 		<div class="row">
 			<div class="small-12 medium-4 large-4 columns">
 				<a href="https://reg.eqtiming.no/?EventUID=20006" class="hero large expanded button">
-					<h2>Påmelding</h2>
-					<p class="show-for-medium">Meld på ditt lag</p>
+					<h2><?php _e("[:no]Påmelding[:en]Sign up[:]"); ?></h2>
+					<p class="show-for-medium"><?php _e("[:no]Meld på ditt lag[:en]Sign up your team[:]"); ?></p>
 				</a>
 			</div>
 			<div class="small-12 medium-4 large-4 columns">
 				<a href="deltagerinfo/" class="hero large expanded button">
-					<h2>Deltagerinfo</h2>
-					<p class="show-for-medium">Svarene til alt du lurer på</p>
+					<h2><?php _e("[:no]Deltagerinfo[:en]Runner info[:]"); ?></h2>
+					<p class="show-for-medium"><?php _e("[:no]Svarene til alt du lurer på[:en]Answers to all your questions[:]"); ?></p>
 				</a>
 			</div>
 			<div class="small-12 medium-4 large-4 columns">
