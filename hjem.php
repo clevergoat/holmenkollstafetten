@@ -30,8 +30,8 @@ Template Name: Hjem
 			</div>
 			<div class="small-12 medium-4 large-4 columns">
 				<a href="loypekart/" class="hero large expanded button">
-					<h2>Løypekart</h2>
-					<p class="show-for-medium">Finn din etappe</p>
+					<h2><?php _e("[:no]Løypekart[:en]Course maps[:]"); ?></h2>
+					<p class="show-for-medium"><?php _e("[:no]Finn din etappe[:en]Find your leg[:]"); ?></p>
 				</a>
 			</div></div>
 		</div>
@@ -62,7 +62,7 @@ Template Name: Hjem
 
 			<div class="small-12 columns">
 				<a href="nyheter/" class="hero large expanded button" style="border-bottom: 3px solid lightgray;">
-					<h2>Se flere nyheter</h2>
+					<h2><?php _e("[:no]Se flere nyheter[:en]See more news[:]"); ?></h2>
 				</a>
 			</div>
 
