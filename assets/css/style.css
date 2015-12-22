@@ -4447,6 +4447,11 @@ COMMENT FORM STYLES
 /*********************
 SIDEBARS & ASIDES
 *********************/
+@media screen and (max-width: 63.9375em) {
+  .sidebar {
+    background-color: #fefefe;
+    margin-top: 2rem; } }
+
 .widget {
   margin-bottom: 1.25rem; }
   .widget ul {
