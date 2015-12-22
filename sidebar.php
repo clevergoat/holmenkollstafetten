@@ -1,5 +1,5 @@
-<div id="sidebar1" class="sidebar large-4 medium-4 columns" role="complementary" style="background-color: white;">
-
+<div id="sidebar1" class="sidebar large-4 medium-4 columns" role="complementary"  data-sticky-container >
+<div class="sticky" data-sticky data-anchor="main" style="background-color: white; padding: 1rem;">
 	<?php if ( is_active_sidebar( 'sidebar1' ) ) : ?>
 
 		<?php dynamic_sidebar( 'sidebar1' ); ?>
@@ -13,5 +13,5 @@
 	</div>
 
 	<?php endif; ?>
-
+</div>
 </div>
