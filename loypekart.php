@@ -515,6 +515,8 @@ Template Name: Løypekart
       center: myLatlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       disableDefaultUI: true,
+      draggable: false,
+      scrollwheel: false,
       zoomControl: true,
     }
 
