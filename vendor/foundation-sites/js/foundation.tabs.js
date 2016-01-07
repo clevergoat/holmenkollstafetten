@@ -19,14 +19,14 @@
     this.options = $.extend({}, Tabs.defaults, this.$element.data(), options);
 
     this._init();
-    Foundation.registerPlugin(this);
+    Foundation.registerPlugin(this, 'Tabs');
     Foundation.Keyboard.register('Tabs', {
       'ENTER': 'open',
       'SPACE': 'open',
       'ARROW_RIGHT': 'next',
       'ARROW_UP': 'previous',
       'ARROW_DOWN': 'next',
-      'ARROW_LEFT': 'previous',
+      'ARROW_LEFT': 'previous'
       // 'TAB': 'next',
       // 'SHIFT_TAB': 'previous'
     });
@@ -183,7 +183,7 @@
       });
 
       // handle keyboard event with keyboard util
-      Foundation.Keyboard.handleKey(e, _this, {
+      Foundation.Keyboard.handleKey(e, 'Tabs', {
         open: function() {
           $element.find('[role="tab"]').focus();
           _this._handleTabChange($element);

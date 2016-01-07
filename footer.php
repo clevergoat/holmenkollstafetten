@@ -34,7 +34,7 @@
 
         <p><?php _e("[:no]Nyhetsbrev[:en]Newsletter[:]"); ?></p>
         <div class="input-group">
-          <input type="text" placeholder="<?php _e("[:no]e-post[:en]Email[:]"); ?>" style="height: 40px;">
+          <input class="input-group-field" type="text" placeholder="<?php _e("[:no]e-post[:en]Email[:]"); ?>" style="height: 40px;">
           <div class="input-group-button">
             <input type="submit" class="button" value="<?php _e("[:no]Meld på[:en]Sign up[:]"); ?>">
           </div>

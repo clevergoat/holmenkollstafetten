@@ -11,14 +11,26 @@ Template Name: Løypekart
 	
 	<div id="inner-content" class="row">
 
-		<main id="main" class="large-12 medium-12 columns" role="main" style="margin-bottom: 30px;">
+    <div class="large-12 medium-12 columns">
 
-			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+                <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-				<?php get_template_part( 'parts/loop', 'page' ); ?>
+                <?php get_template_part( 'parts/loop', 'page' ); ?>
 
-			<?php endwhile; endif; ?>
-			<div id="map_canvas" style="height: 500px;"></div>
+            <?php endwhile; endif; ?>
+            </div>
+
+		<main id="main" class="large-8 medium-8 columns" role="main" style="margin-bottom: 30px;">
+            
+
+
+
+
+
+
+
+
+			<div id="map_canvas" style="height: 400px;"></div>
 		<div id="chart_div"></div>							
 		</main> <!-- end #main -->
 		<script>
@@ -572,6 +584,7 @@ Template Name: Løypekart
       legend: 'none',
       colors: ['#36365d'],
       //curveType: 'function',
+      focusTarget: 'category',
       titleY: 'Høyde (m)',
       vAxis: { minValue: 0 }
     });
@@ -650,42 +663,83 @@ Template Name: Løypekart
 
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lSiVV3iKQ0M3q2DMb7M7YoYVlIAssuY&signed_in=true&callback=initialize" async defer></script>
+<script>
+jQuery(function($) {
+    var etapper = {
+        'Bislett': [['Velg etappe'],['Etappe 1', 0],['Etappe 2', 1],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
+        'St. Hanshaugen': [['Velg etappe'],['Etappe 1', 2],['Etappe 2', 3],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
+    }
+    
+    var $etapper = $('#etappe');
+    $('#start').change(function () {
+        var start = $(this).val(), etpr = etapper[start] || [];
+        
+        var html = $.map(etpr, function(etp){
+            return '<option value="' + etp[1] + '">' + etp[0] + '</option>'
+        }).join('');
+        $etapper.html(html)
+    });
+});
 
-		<div class="large-3 medium-3 columns">
-			<label>
-			<select onchange="loadEtappe(value)" style="background-color: white; border: none; border-bottom: 3px solid lightgray; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-					<option value="0">Bislett</option>
-					<option value="1">St. Hanshaugen</option>
+jQuery(function($) {
+    $('.etappe-info').hide();
+    $('#etappe, #start').change(function () {
+        $('.etappe-info').hide();
+        $('#'+$(this).val()).show();
+    }); 
 
-				</select>
-			</label>
-			<label>
-				<select onchange="loadEtappe(value); return false;" style="background-color: white; border: none; border-bottom: 3px solid lightgray; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option value="0">Bislett 1</option>
-        <option value="1">Bislett 2</option>
-        <option value="2">St Hans 1</option>
-        <option value="3">St Hans 2</option>
-        <option value="4">Etappe 3</option>
-        <option value="5">Etappe 4</option>
-        <option value="6">Etappe 5</option>
-        <option value="7">Etappe 6</option>
-        <option value="8">Etappe 7</option>
-        <option value="9">Etappe 8</option>
-        <option value="10">Etappe 9</option>
-        <option value="11">Etappe 10</option>
-        <option value="12">Etappe 11</option>
-        <option value="13">Etappe 12</option>
-        <option value="14">Etappe 13</option>
-        <option value="15">Etappe 14</option>
-        <option value="16">Etappe 15</option>
-				</select>
-			</label>
-		</div>
-		<div class="large-9 medium-9 columns">
-			<div style="background-color: white; padding: 15px; border-bottom: 3px solid lightgray;">
-				<p>information box here</p>
-			</div>
+});
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lSiVV3iKQ0M3q2DMb7M7YoYVlIAssuY&callback=initialize" async defer></script>
+
+<div class="large-4 medium-4 columns" >
+    <select id="start" name="start" style="background-color: white; border: none; border-bottom: 3px solid lightgray; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+        <option selected disabled>Velg start</option>
+        <option>Bislett</option>
+        <option>St. Hanshaugen</option>
+    </select>
+
+
+    <select id="etappe" name="etappe" onchange="loadEtappe(value)" style="background-color: white; border: none; border-bottom: 3px solid lightgray; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+        <option selected disabled>Velg etappe</option>
+    </select>
+
+</div>
+		<div class="large-4 medium-4 columns">
+
+
+    <?php 
+      $args = array( 'post_type' => 'etapper' );
+      $recent_posts = new WP_Query( $args );
+      $i=0;
+      ?>
+
+      <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
+        
+        <?php
+        echo '<div id="'.$i.'" class="etappe-info" style="background-color: white; padding: 15px; border-bottom: 3px solid lightgray; display: none;">';
+        the_content();
+        echo '</div>';
+        $i++;
+        ?>
+      <?php endwhile; // end of the loop. ?>
+
+      <?php wp_reset_postdata(); ?>
+
+<div id="" class="" style="background-color: white; padding: 15px; border-bottom: 3px solid lightgray;">
+    <h4>YT Holmenkollstafetten<br>. etappe</h4>
+    <p><strong>Distanse:</strong> </p>
+    <p><strong>Start:</strong> </p>
+    <p><strong>Veksling:</strong> </p>
+    <p><strong>Underlag:</strong> </p>
+    <p><strong>Beskrivelse:</strong> </p>
+    <p><strong>Estimert løpstid:</strong> </p> 
+</div>
+
+
+
 		</div>
 	</div> <!-- end #inner-content -->
 

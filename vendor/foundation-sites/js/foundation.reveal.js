@@ -22,7 +22,7 @@
     this.options = $.extend({}, Reveal.defaults, this.$element.data(), options);
     this._init();
 
-    Foundation.registerPlugin(this);
+    Foundation.registerPlugin(this, 'Reveal');
     Foundation.Keyboard.register('Reveal', {
       'ENTER': 'open',
       'SPACE': 'open',
@@ -140,7 +140,7 @@
       this.options.fullScreen = true;
       this.options.overlay = false;
     }
-    if(this.options.overlay){
+    if(this.options.overlay && !this.$overlay){
       this.$overlay = this._makeOverlay(this.id);
     }
 
@@ -214,7 +214,6 @@
     var elePos = this.options.fullScreen ? 'reveal full' : (eleDims.height >= (0.5 * eleDims.windowDims.height)) ? 'reveal' : 'center';
 
     if(elePos === 'reveal full'){
-      console.log('full');
       //set to full height/width
       this.$element
           .offset(Foundation.Box.GetOffsets(this.$element, null, elePos, this.options.vOffset))
@@ -247,7 +246,7 @@
   /**
    * Opens the modal controlled by `this.$anchor`, and closes all others by default.
    * @function
-   * @fires Reveal#closeAll
+   * @fires Reveal#closeme
    * @fires Reveal#open
    */
   Reveal.prototype.open = function(){
@@ -266,7 +265,7 @@
         /**
          * Fires immediately before the modal opens.
          * Closes any other modals that are currently open
-         * @event Reveal#closeAll
+         * @event Reveal#closeme
          */
         _this.$element.trigger('closeme.zf.reveal', _this.id);
       }
@@ -274,10 +273,12 @@
         if(_this.options.overlay){
           Foundation.Motion.animateIn(_this.$overlay, 'fade-in', function(){
             Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
+              _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
             });
           });
         }else{
           Foundation.Motion.animateIn(_this.$element, _this.options.animationIn, function(){
+            _this.focusableElements = Foundation.Keyboard.findFocusable(_this.$element);
           });
         }
       }else{
@@ -316,10 +317,7 @@
    */
   Reveal.prototype._extraHandlers = function(){
     var _this = this;
-    var visibleFocusableElements = this.$element.find('a[href], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, *[tabindex], *[contenteditable]').filter(function() {
-      if (!$(this).is(':visible') || $(this).attr('tabindex') < 0){ return false; }//only have visible elements and those that have a tabindex greater or equal 0
-      return true;
-    });
+    this.focusableElements = Foundation.Keyboard.findFocusable(this.$element);
 
     if(!this.options.overlay && this.options.closeOnClick && !this.options.fullScreen){
       $('body').on('click.zf.reveal', function(e){
@@ -329,16 +327,17 @@
     }
     if(this.options.closeOnEsc){
       $(window).on('keydown.zf.reveal', function(e){
-        if (visibleFocusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
-          e.preventDefault();
-        }
-        Foundation.Keyboard.handleKey(e, _this, {
+        Foundation.Keyboard.handleKey(e, 'Reveal', {
           close: function() {
-            if (this.options.closeOnEsc) {
-              this.close();
+            if (_this.options.closeOnEsc) {
+              _this.close();
+              _this.$anchor.focus();
             }
           }
         });
+        if (_this.focusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
+          e.preventDefault();
+        }
       });
     }
 
@@ -346,33 +345,35 @@
     this.$element.on('keydown.zf.reveal', function(e) {
       var $target = $(this);
       // handle keyboard event with keyboard util
-      Foundation.Keyboard.handleKey(e, _this, {
+      Foundation.Keyboard.handleKey(e, 'Reveal', {
         tab_forward: function() {
-          if (this.$element.find(':focus').is(visibleFocusableElements.eq(-1))) { // left modal downwards, setting focus to first element
-            visibleFocusableElements.eq(0).focus();
+          if (_this.$element.find(':focus').is(_this.focusableElements.eq(-1))) { // left modal downwards, setting focus to first element
+            _this.focusableElements.eq(0).focus();
             e.preventDefault();
           }
         },
         tab_backward: function() {
-          if (this.$element.find(':focus').is(visibleFocusableElements.eq(0)) || this.$element.is(':focus')) { // left modal upwards, setting focus to last element
-            visibleFocusableElements.eq(-1).focus();
+          if (_this.$element.find(':focus').is(_this.focusableElements.eq(0)) || _this.$element.is(':focus')) { // left modal upwards, setting focus to last element
+            _this.focusableElements.eq(-1).focus();
             e.preventDefault();
           }
         },
         open: function() {
-          if ($target.is(visibleFocusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
-            this.open();
+          if (_this.$element.find(':focus').is(_this.$element.find('[data-close]'))) {
+            setTimeout(function() { // set focus back to anchor if close button has been activated
+              _this.$anchor.focus();
+            }, 1);
+          } else if ($target.is(_this.focusableElements)) { // dont't trigger if acual element has focus (i.e. inputs, links, ...)
+            _this.open();
           }
         },
         close: function() {
-          if (this.options.closeOnEsc) {
-            this.close();
+          if (_this.options.closeOnEsc) {
+            _this.close();
+            _this.$anchor.focus();
           }
         }
       });
-      if (visibleFocusableElements.length === 0) { // no focusable elements inside the modal at all, prevent tabbing in general
-        e.preventDefault();
-      }
     });
 
   };

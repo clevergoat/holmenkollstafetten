@@ -62,21 +62,21 @@ function sponsors() {
 	
 	
 	// let's create the function for the custom type
-function hero_buttons() { 
+function etapper() { 
 	// creating (registering) the custom type 
-	register_post_type( 'hero_buttons', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
+	register_post_type( 'etapper', /* (http://codex.wordpress.org/Function_Reference/register_post_type) */
 	 	// let's now add all the options for this post type
 		array('labels' => array(
-			'name' => __('Hero buttons', 'jointswp'), /* This is the Title of the Group */
-			'singular_name' => __('Hero button', 'jointswp'), /* This is the individual type */
-			'all_items' => __('All Hero buttons', 'jointswp'), /* the all items menu item */
+			'name' => __('Etapper', 'jointswp'), /* This is the Title of the Group */
+			'singular_name' => __('Etappe', 'jointswp'), /* This is the individual type */
+			'all_items' => __('All Etapper', 'jointswp'), /* the all items menu item */
 			'add_new' => __('Add New', 'jointswp'), /* The add new menu item */
-			'add_new_item' => __('Add New Hero button', 'jointswp'), /* Add New Display Title */
+			'add_new_item' => __('Add New Etappe', 'jointswp'), /* Add New Display Title */
 			'edit' => __( 'Edit', 'jointswp' ), /* Edit Dialog */
-			'edit_item' => __('Edit Hero button', 'jointswp'), /* Edit Display Title */
-			'new_item' => __('New Hero button', 'jointswp'), /* New Display Title */
-			'view_item' => __('View Sponsor', 'jointswp'), /* View Display Title */
-			'search_items' => __('Search Hero buttons', 'jointswp'), /* Search Custom Type Title */ 
+			'edit_item' => __('Edit Etappe', 'jointswp'), /* Edit Display Title */
+			'new_item' => __('New Etappe', 'jointswp'), /* New Display Title */
+			'view_item' => __('View Etappe', 'jointswp'), /* View Display Title */
+			'search_items' => __('Search Etapper', 'jointswp'), /* Search Custom Type Title */ 
 			'not_found' =>  __('Nothing found in the Database.', 'jointswp'), /* This displays if there are no entries yet */ 
 			'not_found_in_trash' => __('Nothing found in Trash', 'jointswp'), /* This displays if there is nothing in the trash */
 			'parent_item_colon' => ''
@@ -89,9 +89,9 @@ function hero_buttons() {
 			'show_in_nav_menus' => false,
 			'query_var' => true,
 			'menu_position' => 20, /* this is what order you want it to appear in on the left hand side menu */ 
-			'menu_icon' => 'dashicons-screenoptions', /* the icon for the custom post type menu. uses built-in dashicons (CSS class name) */
-			'rewrite'	=> array( 'slug' => 'sponsor', 'with_front' => false ), /* you can specify its url slug */
-			'has_archive' => 'sponsor', /* you can rename the slug here */
+			'menu_icon' => 'dashicons-flag', /* the icon for the custom post type menu. uses built-in dashicons (CSS class name) */
+			'rewrite'	=> array( 'slug' => 'etapper', 'with_front' => false ), /* you can specify its url slug */
+			'has_archive' => 'etapper', /* you can rename the slug here */
 			'capability_type' => 'post',
 			'hierarchical' => false,
 			/* the next one is important, it tells what's enabled in the post editor */
@@ -108,7 +108,7 @@ function hero_buttons() {
 
 	// adding the function to the Wordpress init
 	add_action( 'init', 'sponsors');
-	add_action( 'init', 'hero_buttons');
+	add_action( 'init', 'etapper');
 	/*
 	for more information on taxonomies, go here:
 	http://codex.wordpress.org/Function_Reference/register_taxonomy
