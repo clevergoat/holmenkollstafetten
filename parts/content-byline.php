@@ -1,3 +1,3 @@
 <p class="byline">
-	<?php the_time('F j, Y') ?>
+	<?php the_time('[:no]j. F, Y[:en]F j, Y[:]') ?>
 </p>	

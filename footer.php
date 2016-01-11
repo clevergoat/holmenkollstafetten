@@ -3,7 +3,7 @@
 
 <footer class="footer" role="contentinfo">
   <div class="footer-sponsors" style="background-color: white;">
-    <div class="row small-up-3 medium-up-6 large-up-6" style="padding: 40px 0 30px;">
+    <div class="row small-up-4 medium-up-6 large-up-8" style="padding: 40px 0 30px;">
       <?php 
       $args = array( 'post_type' => 'sponsors' );
       $recent_posts = new WP_Query( $args ); 
@@ -13,7 +13,7 @@
 
         <div class="column">
           <a href="<?php echo rwmb_meta( 'url' );?>" title="<?php the_title_attribute(); ?>">
-            <?php the_post_thumbnail( array(200,200) ); ?>
+            <?php the_post_thumbnail(array(120,120)); ?>
           </a>
         </div>
 
@@ -55,7 +55,7 @@
       <?php joints_footer_links3(); ?>
     </div>
     <div class="kontakt-footer small-6 large-2 large-pull-3 columns" style="">
-      <p>Kontakt</p>
+      <p><?php _e("[:no]Kontakt[:en]Contact[:]"); ?></p>
       <p>Yt Holmenkollstafetten</p>
       <p>Postboks 5905</p>
       <p>Majorstua</p>
@@ -83,7 +83,7 @@
       <p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
     </div>
     <div class="small-12  medium-4 columns">
-      <p class="">Nettsiden er levert av <a href="http://drd.no">www.drd.no</a></p>
+      <p class=""><?php _e("[:no]Nettsiden er levert av[:en]Site delivered by[:]"); ?><a href="http://drd.no"> www.drd.no</a></p>
     </div>
   </div>
 

@@ -21,17 +21,8 @@ Template Name: Løypekart
         </div>
 
         <main id="main" class="large-8 medium-8 columns" role="main" style="margin-bottom: 30px;">
-
-
-
-
-
-
-
-
-
             <div id="map_canvas" style="height: 400px;"></div>
-            <div id="chart_div"></div>							
+            <div id="chart_div" class="bottom-gray"></div>							
         </main> <!-- end #main -->
         <script>
             var map = null;
@@ -44,7 +35,7 @@ Template Name: Løypekart
             var polyline = null;
             var elevations = null;
 
-            var SAMPLES = 256;
+            var SAMPLES = 128;
 
 var etapper = [{// Bislett 1
     latlngs: [
@@ -549,6 +540,13 @@ function initialize() {
         }
     });
 
+    google.visualization.events.addListener(chart, 'onmouseout', function(e) {
+        if (mousemarker != null) {
+            mousemarker.setMap(null);
+            mousemarker = null;
+        }
+    });
+
     loadEtappe(0);
 }
 
@@ -573,7 +571,7 @@ function plotElevation(results) {
 
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Sample');
-    data.addColumn('number', 'Høyde');
+    data.addColumn('number', '<?php _e("[:no]Høyde (m)[:en]Elevation (m)[:]"); ?>');
     for (var i = 0; i < results.length; i++) {
         data.addRow(['', Math.round(elevations[i].elevation * 100) / 100]);
     }
@@ -585,7 +583,7 @@ function plotElevation(results) {
         colors: ['#36365d'],
 //curveType: 'function',
 focusTarget: 'category',
-titleY: 'Høyde (m)',
+titleY: '<?php _e("[:no]Høyde (m)[:en]Elevation (m)[:]"); ?>',
 vAxis: { minValue: 0 }
 });
 }
@@ -658,71 +656,68 @@ function reset() {
 
     markers = [];
 
-//document.getElementById('chart_div').style.display = 'none';
 }
 
 
 </script>
 <script>
     jQuery(function($) {
-        var etapper = {
-            'Bislett': [['Velg etappe'],['Etappe 1', 0],['Etappe 2', 1],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
-            'St. Hanshaugen': [['Velg etappe'],['Etappe 1', 2],['Etappe 2', 3],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
+        var etapperValg = {
+            'Bislett': [['<?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?>'],['Etappe 1', 0],['Etappe 2', 1],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
+            'St Hanshaugen': [['<?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?>'],['Etappe 1', 2],['Etappe 2', 3],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
         }
 
-        var $etapper = $('#etappe');
+        var $etapperValg = $('#etappe');
         $('#start').change(function () {
-            var start = $(this).val(), etpr = etapper[start] || [];
+            var start = $(this).val(), etpr = etapperValg[start] || [];
 
             var html = $.map(etpr, function(etp){
                 return '<option value="' + etp[1] + '">' + etp[0] + '</option>'
             }).join('');
-            $etapper.html(html)
+            $etapperValg.html(html)
         });
     });
 
-    jQuery(function($) {
+jQuery(function($) {
+    $('.etappe-info').hide();
+    $('#etappe, #start').change(function () {
         $('.etappe-info').hide();
-        $('#etappe, #start').change(function () {
-            $('.etappe-info').hide();
-            $('#'+$(this).val()).show();
-        }); 
+        $('#'+$(this).val()).show();
+    }); 
 
-    });
+});
 
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lSiVV3iKQ0M3q2DMb7M7YoYVlIAssuY&callback=initialize" async defer></script>
 
 <div class="large-4 medium-4 columns" >
-    <select id="start" name="start" style="background-color: white; border: none; border-bottom: 3px solid lightgray; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option selected disabled>Velg start</option>
+    <select id="start" name="start" class="bottom-gray" style="background-color: white; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+        <option selected disabled><?php _e("[:no]Velg start[:en]Choose start[:]"); ?></option>
         <option>Bislett</option>
-        <option>St. Hanshaugen</option>
+        <option>St Hanshaugen</option>
     </select>
 
 
-    <select id="etappe" name="etappe" onchange="loadEtappe(value)" style="background-color: white; border: none; border-bottom: 3px solid lightgray; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option selected disabled>Velg etappe</option>
+    <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)" style="background-color: white; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+        <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
     </select>
 
 </div>
 <div class="large-4 medium-4 columns">
-
-
     <?php 
     $args = array( 'post_type' => 'etapper' );
     $recent_posts = new WP_Query( $args );
-    $i=0;
+//$i=0;
     ?>
 
     <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
 
         <?php
-        echo '<div id="'.$i.'" class="etappe-info" style="background-color: white; padding: 15px; border-bottom: 3px solid lightgray; display: none;">';
+        echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="background-color: white; padding: 15px; display: none;">';
         the_content();
         echo '</div>';
-        $i++;
+//$i++;
         ?>
     <?php endwhile; // end of the loop. ?>
 

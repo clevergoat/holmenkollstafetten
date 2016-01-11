@@ -16,20 +16,20 @@ Template Name: Hjem
 
 	<div class="inner-container">
 		<div class="row">
-			<div class="small-12 medium-4 large-4 columns">
-				<a href="https://reg.eqtiming.no/?EventUID=20006" class="hero large expanded button">
+			<div class="small-12 large-4 columns">
+				<a href="https://reg.eqtiming.no/?EventUID=20006" class="hero large expanded button bottom-gray">
 					<h2><?php _e("[:no]Påmelding[:en]Sign up[:]"); ?></h2>
 					<p class="show-for-medium"><?php _e("[:no]Meld på ditt lag[:en]Sign up your team[:]"); ?></p>
 				</a>
 			</div>
-			<div class="small-12 medium-4 large-4 columns">
-				<a href="deltagerinfo/" class="hero large expanded button">
+			<div class="small-12 large-4 columns">
+				<a href="deltagerinfo/" class="hero large expanded button bottom-gray">
 					<h2><?php _e("[:no]Deltagerinfo[:en]Runner info[:]"); ?></h2>
 					<p class="show-for-medium"><?php _e("[:no]Svarene til alt du lurer på[:en]Answers to all your questions[:]"); ?></p>
 				</a>
 			</div>
-			<div class="small-12 medium-4 large-4 columns">
-				<a href="loypekart/" class="hero large expanded button">
+			<div class="small-12 large-4 columns">
+				<a href="loypekart/" class="hero large expanded button bottom-gray">
 					<h2><?php _e("[:no]Løypekart[:en]Course maps[:]"); ?></h2>
 					<p class="show-for-medium"><?php _e("[:no]Finn din etappe[:en]Find your leg[:]"); ?></p>
 				</a>
@@ -61,7 +61,7 @@ Template Name: Hjem
 
 
 			<div class="small-12 columns">
-				<a href="nyheter/" class="hero large expanded button" style="border-bottom: 3px solid lightgray;">
+				<a href="nyheter/" class="hero large expanded button bottom-gray">
 					<h2><?php _e("[:no]Se flere nyheter[:en]See more news[:]"); ?></h2>
 				</a>
 			</div>
