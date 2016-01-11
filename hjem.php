@@ -33,6 +33,7 @@ Template Name: Hjem
 					<h2><?php _e("[:no]Løypekart[:en]Course maps[:]"); ?></h2>
 					<p class="show-for-medium"><?php _e("[:no]Finn din etappe[:en]Find your leg[:]"); ?></p>
 				</a>
+
 			</div></div>
 		</div>
 	</div>
@@ -41,6 +42,7 @@ Template Name: Hjem
 		<div id="inner-content" class="row">
 
 			<main id="main" class="large-12 medium-12 columns" role="main" style="margin: 30px 0 40px;">
+			
 
 				<?php 
 				$args = array( 'posts_per_page' => '3' );

@@ -11,7 +11,7 @@
 
       <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
 
-        <div class="column">
+        <div class="column" style="margin-bottom: 1rem;">
           <a href="<?php echo rwmb_meta( 'url' );?>" title="<?php the_title_attribute(); ?>">
             <?php the_post_thumbnail(array(120,120)); ?>
           </a>
@@ -82,7 +82,7 @@
     <div class="small-12 medium-8 columns ">
       <p class="source-org copyright">&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?>.</p>
     </div>
-    <div class="small-12  medium-4 columns">
+    <div class="small-12 medium-4 columns">
       <p class=""><?php _e("[:no]Nettsiden er levert av[:en]Site delivered by[:]"); ?><a href="http://drd.no"> www.drd.no</a></p>
     </div>
   </div>

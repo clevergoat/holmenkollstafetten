@@ -1,4 +1,3 @@
-
 <?php
 /*
 Template Name: Løypekart
@@ -21,22 +20,27 @@ Template Name: Løypekart
         </div>
 
         <main id="main" class="large-8 medium-8 columns" role="main" style="margin-bottom: 30px;">
+
+
+
+
+
+
+
+
+
             <div id="map_canvas" style="height: 400px;"></div>
-            <div id="chart_div" class="bottom-gray"></div>							
+            <div id="chart_div"></div>                          
         </main> <!-- end #main -->
         <script>
             var map = null;
             var chart = null;
-
             var elevationService = null;
-
             var mousemarker = null;
             var markers = [];
             var polyline = null;
             var elevations = null;
-
-            var SAMPLES = 128;
-
+            var SAMPLES = 256;
 var etapper = [{// Bislett 1
     latlngs: [
     [59.925382778209084, 10.73238730430603],
@@ -508,9 +512,7 @@ latlngs: [
 }];
 // Load the Visualization API and the columnchart package.
 google.load('visualization', '1', {packages: ['corechart']});
-
 //google.setOnLoadCallback(initialize);
-
 function initialize() {
     var myLatlng = new google.maps.LatLng(0, 0);
     var myOptions = {
@@ -522,12 +524,9 @@ function initialize() {
         scrollwheel: false,
         zoomControl: true,
     }
-
     map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
     chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-
     elevationService = new google.maps.ElevationService();
-
     google.visualization.events.addListener(chart, 'onmouseover', function(e) {
         if (mousemarker == null) {
             mousemarker = new google.maps.Marker({
@@ -539,43 +538,29 @@ function initialize() {
             mousemarker.setPosition(elevations[e.row].location);
         }
     });
-
-    google.visualization.events.addListener(chart, 'onmouseout', function(e) {
-        if (mousemarker != null) {
-            mousemarker.setMap(null);
-            mousemarker = null;
-        }
-    });
-
     loadEtappe(0);
 }
-
 // Takes an array of ElevationResult objects, draws the path on the map
 // and plots the elevation profile on a GViz ColumnChart
 function plotElevation(results) {
     elevations = results;
-
     var path = [];
     for (var i = 0; i < results.length; i++) {
         path.push(elevations[i].location);
     }
-
     if (polyline) {
         polyline.setMap(null);
     }
-
     polyline = new google.maps.Polyline({
         path: path,
         strokeColor: "#36365d",
         map: map});
-
     var data = new google.visualization.DataTable();
     data.addColumn('string', 'Sample');
-    data.addColumn('number', '<?php _e("[:no]Høyde (m)[:en]Elevation (m)[:]"); ?>');
+    data.addColumn('number', 'Høyde');
     for (var i = 0; i < results.length; i++) {
         data.addRow(['', Math.round(elevations[i].elevation * 100) / 100]);
     }
-
     document.getElementById('chart_div').style.display = 'block';
     chart.draw(data, {
         height: 300,
@@ -583,11 +568,10 @@ function plotElevation(results) {
         colors: ['#36365d'],
 //curveType: 'function',
 focusTarget: 'category',
-titleY: '<?php _e("[:no]Høyde (m)[:en]Elevation (m)[:]"); ?>',
+titleY: 'Høyde (m)',
 vAxis: { minValue: 0 }
 });
 }
-
 // Remove the green rollover marker when the mouse leaves the chart
 function clearMouseMarker() {
     if (mousemarker != null) {
@@ -595,18 +579,14 @@ function clearMouseMarker() {
         mousemarker = null;
     }
 }
-
 // Add a marker and trigger recalculation of the path and elevation
 function addMarker(latlng, doQuery) {
-
     var marker = new google.maps.Marker({
         position: latlng,
         map: map,
         draggable: false
     })
-
     markers.push(marker);
-
     if (doQuery) {
         updateElevation();
     }
@@ -614,9 +594,7 @@ function addMarker(latlng, doQuery) {
         markers[i].setMap(null);
     }
 }
-
 function updateElevation() {
-
     var latlngs = [];
     for (var i in markers) {
         latlngs.push(markers[i].getPosition())
@@ -639,85 +617,76 @@ for (var i = 0; i < etapper[n].latlngs.length; i++) {
     addMarker(latlng, false);
     bounds.extend(latlng);
 }
-
 map.fitBounds(bounds);
 updateElevation();
 }
-
 // Clear all overlays, reset the array of points, and hide the chart
 function reset() {
     if (polyline) {
         polyline.setMap(null);
     }
-
     for (var i in markers) {
         markers[i].setMap(null);
     }
-
     markers = [];
-
+//document.getElementById('chart_div').style.display = 'none';
 }
-
-
 </script>
 <script>
     jQuery(function($) {
-        var etapperValg = {
+        var etapper = {
             'Bislett': [['<?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?>'],['Etappe 1', 0],['Etappe 2', 1],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
-            'St Hanshaugen': [['<?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?>'],['Etappe 1', 2],['Etappe 2', 3],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
+            'St. Hanshaugen': [['<?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?>'],['Etappe 1', 2],['Etappe 2', 3],['Etappe 3', 4],['Etappe 4', 5],['Etappe 5', 6],['Etappe 6', 7],['Etappe 7', 8],['Etappe 8', 9],['Etappe 9', 10],['Etappe 10', 11],['Etappe 11', 12],['Etappe 12', 13],['Etappe 13', 14],['Etappe 14', 15],['Etappe 15', 16]],
         }
-
-        var $etapperValg = $('#etappe');
+        var $etapper = $('#etappe');
         $('#start').change(function () {
-            var start = $(this).val(), etpr = etapperValg[start] || [];
-
+            var start = $(this).val(), etpr = etapper[start] || [];
             var html = $.map(etpr, function(etp){
                 return '<option value="' + etp[1] + '">' + etp[0] + '</option>'
             }).join('');
-            $etapperValg.html(html)
+            $etapper.html(html)
         });
     });
-
-jQuery(function($) {
-    $('.etappe-info').hide();
-    $('#etappe, #start').change(function () {
+    jQuery(function($) {
         $('.etappe-info').hide();
-        $('#'+$(this).val()).show();
-    }); 
-
-});
-
+        $('#etappe, #start').change(function () {
+            $('.etappe-info').hide();
+            $('#'+$(this).val()).show();
+        }); 
+    });
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lSiVV3iKQ0M3q2DMb7M7YoYVlIAssuY&callback=initialize" async defer></script>
 
 <div class="large-4 medium-4 columns" >
-    <select id="start" name="start" class="bottom-gray" style="background-color: white; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+    <select id="start" name="start" class="bottom-gray" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
         <option selected disabled><?php _e("[:no]Velg start[:en]Choose start[:]"); ?></option>
         <option>Bislett</option>
-        <option>St Hanshaugen</option>
+        <option>St. Hanshaugen</option>
     </select>
 
 
-    <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)" style="background-color: white; height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+    <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
         <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
     </select>
 
 </div>
 <div class="large-4 medium-4 columns">
+
+
     <?php 
     $args = array( 'post_type' => 'etapper' );
     $recent_posts = new WP_Query( $args );
-//$i=0;
+    $i=0;
     ?>
 
     <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
 
         <?php
-        echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="background-color: white; padding: 15px; display: none;">';
+        echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="padding: 15px; display: none;">';
         the_content();
         echo '</div>';
-//$i++;
+        $i++;
         ?>
     <?php endwhile; // end of the loop. ?>
 
