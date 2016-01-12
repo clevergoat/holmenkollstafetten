@@ -39,8 +39,7 @@ Template Name: List Child pages
 				if ($meta){
 
 					get_template_part( 'parts/loop', 'child' );
-					echo get_post_meta($post->ID, 'Description', true); 
-					
+										
 				}
 				endwhile;
 			}
