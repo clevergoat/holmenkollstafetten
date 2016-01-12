@@ -10,7 +10,8 @@
 	<header class="article-header">
 		<h2><?php the_title(); ?></h2>
 
-		<?php echo __(get_post_meta( get_the_ID(), 'Description', true )); ?>
+		<?php $meta = __(get_post_meta( get_the_ID(), 'Description', true )); ?>
+		<?php echo '<p>'. $meta .'</p>';?>
 		
 	</header> <!-- end article header -->
 					
