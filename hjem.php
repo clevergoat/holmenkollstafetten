@@ -7,7 +7,7 @@ Template Name: Hjem
 
 <?php get_header(); ?>
 
-<div class="container" style="height: calc(100vh - 90px);">
+<div class="container hide-for-small" >
 	<div class="logo">
 		<img src="<?php echo get_template_directory_uri(); ?>/images/hk_logo.png">
 	</div>
@@ -20,8 +20,8 @@ Template Name: Hjem
 	</div>
 
 
-	<div class="inner-container" style="position: static; bottom: inherit;">
-		<div class="row">
+</div>
+		<div class="row" style="margin-top: 40px;">
 			<div class="small-12 large-4 columns">
 				<a href="https://reg.eqtiming.no/?EventUID=20006" class="hero large expanded button bottom-gray">
 					<h2><?php _e("[:no]Påmelding[:en]Sign up[:]"); ?></h2>
@@ -40,9 +40,10 @@ Template Name: Hjem
 					<p class="show-for-medium"><?php _e("[:no]Finn din etappe[:en]Find your leg[:]"); ?></p>
 				</a>
 
-			</div></div>
-		</div>
-	</div>
+			</div>
+			</div>
+		
+	
 	<div id="content">
 
 		<div id="inner-content" class="row">
