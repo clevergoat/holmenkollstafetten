@@ -5,28 +5,54 @@ Template Name: List Child pages
 ?>
 
 <?php get_header(); ?>
-	
-	<div id="content">
-	
-		<div id="inner-content" class="row">
-	
-		    <main id="main" class="large-8 medium-12 columns bottom-gray" role="main">
+
+<div id="content">
+
+	<div id="inner-content" class="row">
+
+		<main id="main" class="large-8 medium-12 columns" role="main">
 
 
-		    <h2>test child pages</h2>
+			<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+				<?php get_template_part( 'parts/loop', 'page' ); ?>
+
+			<?php endwhile; endif; ?>		
+
+			<?php
+			$parent_id = $posts[0]->ID;
+			$args=array(
+				'post_parent' => $parent_id,
+				'post_type' => 'page',
+				'post_status' => 'publish',
+				'posts_per_page' => -1,
+				'caller_get_posts'=> 1
+				);
+			$my_query = null;
+			$my_query = new WP_Query($args);
+			if( $my_query->have_posts() ) {
+
+				while ($my_query->have_posts()) : $my_query->the_post(); ?>
 				
-<!-- 				<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+				<?php
+				$meta = get_post_meta($post->ID, 'Description', true);
+				if ($meta){
 
-			    	<?php get_template_part( 'parts/loop', 'page' ); ?>
-			    
-			    <?php endwhile; endif; ?>	 -->						
-			    					
-			</main> <!-- end #main -->
+					get_template_part( 'parts/loop', 'child' );
+					echo get_post_meta($post->ID, 'Description', true); 
+					
+				}
+				endwhile;
+			}
+wp_reset_query();  // Restore global post data stomped by the_post().
+?>
 
-		    <?php get_sidebar(); ?>
-		    
-		</div> <!-- end #inner-content -->
+</main> <!-- end #main -->
 
-	</div> <!-- end #content -->
+<?php get_sidebar(); ?>
+
+</div> <!-- end #inner-content -->
+
+</div> <!-- end #content -->
 
 <?php get_footer(); ?>
