@@ -18,8 +18,45 @@ Template Name: Løypekart
 
             <?php endwhile; endif; ?>
         </div>
+        <div class="medium-push-8 large-4 medium-4 columns" >
+    <select id="start" name="start" class="bottom-gray" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+        <option selected disabled><?php _e("[:no]Velg start[:en]Choose start[:]"); ?></option>
+        <option>Bislett</option>
+        <option>St. Hanshaugen</option>
+    </select>
+     
 
-        <main id="main" class="large-8 medium-8 columns" role="main" style="margin-bottom: 30px;">
+     <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
+        <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
+    </select>
+
+
+    <?php 
+    $args = array( 'post_type' => 'etapper' );
+    $recent_posts = new WP_Query( $args );
+    $i=0;
+    ?>
+
+    <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
+
+        <?php
+        echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="padding: 15px; margin-bottom: 15px; display: none;">';
+        the_content();
+        echo '</div>';
+        $i++;
+        ?>
+    <?php endwhile; // end of the loop. ?>
+
+    <?php wp_reset_postdata(); ?>
+
+
+
+ </div> 
+
+
+
+
+        <main id="main" class="medium-pull-4 medium-8 large-8 columns" role="main" style="margin-bottom: 30px;">
 
 
             <div id="map_canvas" style="height: 400px;"></div>
@@ -655,42 +692,11 @@ function reset() {
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lSiVV3iKQ0M3q2DMb7M7YoYVlIAssuY&callback=initialize" async defer></script>
 
-<div class="large-4 medium-4 columns" >
-    <select id="start" name="start" class="bottom-gray" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option selected disabled><?php _e("[:no]Velg start[:en]Choose start[:]"); ?></option>
-        <option>Bislett</option>
-        <option>St. Hanshaugen</option>
-    </select>
 
-
-    <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
-    </select>
-
-</div>
-<div class="large-4 medium-4 columns">
-
-
-    <?php 
-    $args = array( 'post_type' => 'etapper' );
-    $recent_posts = new WP_Query( $args );
-    $i=0;
-    ?>
-
-    <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
-
-        <?php
-        echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="padding: 15px; display: none;">';
-        the_content();
-        echo '</div>';
-        $i++;
-        ?>
-    <?php endwhile; // end of the loop. ?>
-
-    <?php wp_reset_postdata(); ?>
 
 
 </div>
+
 
 </div> <!-- end #inner-content -->
 
