@@ -13,6 +13,11 @@ Template Name: Hjem
 	</div>
 	<div class="show-for-medium hoved-bg">
 	</div>
+	<div class="hks-timer show-for-medium" style="position: relative; bottom: 225px; margin: 0 auto; text-align: center; max-width: 550px;">
+		<h3 style="font-weight: 200; text-shadow: 0 1px 0 #fff; ">Norges største friidrettsarrangement.</h3>
+		<h3 style="font-weight: 600;">Lørdag 7. mai, 2016.</h3>
+		<?php echo _e(do_shortcode('[:no][easy_countdowner name="demo_countdowner" theme="default" animation="ticks" end_date="2016-05-07" end_time="00:00:00" day_label="Dager" hour_label="Timer" minute_label="Minutter" second_label="Sekunder"][:en][easy_countdowner name="demo_countdowner" theme="default" animation="ticks" end_date="2016-05-07" end_time="00:00:00" day_label="Days" hour_label="Hours" minute_label="Minutes" second_label="Seconds"[:]'));?>
+		</div>
 
 	<div class="inner-container">
 		<div class="row">

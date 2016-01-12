@@ -2,7 +2,7 @@
 	
 		
 		<header class="article-header">
-			<h1><?php _e("[:no]Beklager! - Vi kan ikke finne siden du leter etter[:en]Sorry! - We can't find what you're looking for[:]", "jointswp");?></h1>
+			<h1><?php _e("[:no]Beklager! - Vi kan ikke finne det du leter etter[:en]Sorry! - We can't find what you're looking for[:]", "jointswp");?></h1>
 		</header>
 		
 		<section class="entry-content">
