@@ -22,15 +22,12 @@ Template Name: Løypekart
         <main id="main" class="large-8 medium-8 columns" role="main" style="margin-bottom: 30px;">
 
 
-
-
-
-
-
-
-
             <div id="map_canvas" style="height: 400px;"></div>
-            <div id="chart_div"></div>                          
+            <div id="chart_div"></div> 
+
+<div class="videowrapper" style="float: none; clear: both; width: 100%; position: relative; margin-top: 30px; height: 0; padding-top: 25px; padding-bottom: 56.25%;">
+<iframe src="https://www.youtube.com/embed/xA4OIlhueuw" width="640" height="360" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+                     </div>
         </main> <!-- end #main -->
         <script>
             var map = null;
@@ -694,6 +691,7 @@ function reset() {
 
 
 </div>
+
 </div> <!-- end #inner-content -->
 
 </div> <!-- end #content -->
