@@ -13,7 +13,7 @@
 		
 	</header> <!-- end article header -->
 					
-	
+		<?php the_excerpt(10); ?>
 	
 						
 	<footer class="article-footer">
