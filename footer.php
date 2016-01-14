@@ -30,7 +30,7 @@
   <div id="inner-footer" class="row">
 
     <form>
-      <div class="nyhetsbrev-footer small-12 large-3 large-push-9 columns" style=""> 
+<!--       <div class="nyhetsbrev-footer small-12 large-3 large-push-9 columns" style=""> 
 
         <p><?php _e("[:no]Nyhetsbrev[:en]Newsletter[:]"); ?></p>
         <div class="input-group">
@@ -40,18 +40,18 @@
           </div>
         </div>
 
-      </div>
+      </div> -->
 
 
     </form>
-
-    <div class="small-6 large-2 large-pull-3 columns" style="">
+<!-- add large-pull-3 when nyhetsbrev is ready and uncommented -->
+    <div class="small-6 large-2  columns" style="">
       <?php joints_footer_links1(); ?>
     </div>
-    <div class="small-6 large-2 large-pull-3 columns" style="">
+    <div class="small-6 large-2  columns" style="">
       <?php joints_footer_links2(); ?>
     </div>
-    <div class="small-6 large-2 large-pull-3 columns" style="">
+    <div class="small-6 large-2 columns" style="">
       <?php joints_footer_links3(); ?>
     </div>
     <div class="kontakt-footer small-6 large-2 large-pull-3 columns" style="">

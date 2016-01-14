@@ -19,39 +19,39 @@ Template Name: Løypekart
             <?php endwhile; endif; ?>
         </div>
         <div class="medium-push-8 large-4 medium-4 columns" >
-    <select id="start" name="start" class="bottom-gray" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option selected disabled><?php _e("[:no]Velg start[:en]Choose start[:]"); ?></option>
-        <option>Bislett</option>
-        <option>St. Hanshaugen</option>
-    </select>
-     
-
-     <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)" style="height: 60px; padding: 15px; background-size: 13px 12px; background-position: right 1rem center;">
-        <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
-    </select>
+            <select id="start" name="start" class="bottom-gray">
+                <option selected disabled><?php _e("[:no]Velg start[:en]Choose start[:]"); ?></option>
+                <option>Bislett</option>
+                <option>St. Hanshaugen</option>
+            </select>
 
 
-    <?php 
-    $args = array( 'post_type' => 'etapper' );
-    $recent_posts = new WP_Query( $args );
-    $i=0;
-    ?>
-
-    <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
-
-        <?php
-        echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="padding: 15px; margin-bottom: 15px; display: none;">';
-        the_content();
-        echo '</div>';
-        $i++;
-        ?>
-    <?php endwhile; // end of the loop. ?>
-
-    <?php wp_reset_postdata(); ?>
+            <select id="etappe" name="etappe" class="bottom-gray" onchange="loadEtappe(value)">
+                <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
+            </select>
 
 
+            <?php 
+            $args = array( 'post_type' => 'etapper' );
+            $recent_posts = new WP_Query( $args );
+            $i=0;
+            ?>
 
- </div> 
+            <?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
+
+                <?php
+                echo '<div id="'.$i.'" class="etappe-info bottom-gray" style="padding: 15px; margin-bottom: 15px; display: none;">';
+                the_content();
+                echo '</div>';
+                $i++;
+                ?>
+            <?php endwhile; // end of the loop. ?>
+
+            <?php wp_reset_postdata(); ?>
+
+
+
+        </div> 
 
 
 
@@ -62,9 +62,9 @@ Template Name: Løypekart
             <div id="map_canvas" style="height: 400px;"></div>
             <div id="chart_div"></div> 
 
-<div class="videowrapper" style="float: none; clear: both; width: 100%; position: relative; margin-top: 30px; height: 0; padding-top: 25px; padding-bottom: 56.25%;">
-<iframe src="https://www.youtube.com/embed/xA4OIlhueuw" width="640" height="360" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-                     </div>
+            <div class="videowrapper">
+                <iframe src="https://www.youtube.com/embed/xA4OIlhueuw" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+            </div>
         </main> <!-- end #main -->
         <script>
             var map = null;
@@ -681,21 +681,16 @@ function reset() {
             $etapper.html(html)
         });
     });
-    jQuery(function($) {
+jQuery(function($) {
+    $('.etappe-info').hide();
+    $('#etappe, #start').change(function () {
         $('.etappe-info').hide();
-        $('#etappe, #start').change(function () {
-            $('.etappe-info').hide();
-            $('#'+$(this).val()).show();
-        }); 
-    });
+        $('#'+$(this).val()).show();
+    }); 
+});
 </script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7lSiVV3iKQ0M3q2DMb7M7YoYVlIAssuY&callback=initialize" async defer></script>
-
-
-
-
-</div>
 
 
 </div> <!-- end #inner-content -->

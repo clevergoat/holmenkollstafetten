@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /******************************************************************
 	
 Stylesheet: Main Stylesheet
@@ -2850,7 +2851,7 @@ MAIN PAGE TOP
   background-position: center;
   background-size: cover;
   height: 100%;
-  height: calc(100% - 187px); }
+  position: static; }
 
 .container {
   height: 95vh;
@@ -2859,6 +2860,15 @@ MAIN PAGE TOP
   @media screen and (max-width: 31.9375em) {
     .container {
       height: auto; } }
+
+.hks-timer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  margin: 0 auto;
+  text-align: center;
+  width: 550px; }
 
 .inner-container {
   position: absolute;
@@ -2871,8 +2881,36 @@ MAIN PAGE TOP
       position: static; } }
 
 /*********************
+LØYPEKART
+*********************/
+select {
+  height: 60px;
+  padding: 15px;
+  background-size: 13px 12px;
+  background-position: right 1rem center; }
+
+.videowrapper {
+  float: none;
+  clear: both;
+  width: 100%;
+  position: relative;
+  margin-top: 30px;
+  height: 0;
+  padding-top: 25px;
+  padding-bottom: 56.25%; }
+  .videowrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+/*********************
 NAVIGATION STYLES
 *********************/
+.hidden {
+  display: none; }
+
 .top-bar .title-area {
   z-index: 1; }
 
@@ -3005,7 +3043,7 @@ POSTS & CONTENT STYLES
   margin-bottom: 1rem; }
 
 .entry-content img {
-  max-width: 100%;
+  max-width: none;
   height: auto; }
 
 .entry-content .alignleft, .entry-content img.alignleft {

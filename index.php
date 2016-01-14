@@ -4,13 +4,19 @@
 	
 		<div id="inner-content" class="row">
 	
-		    <main id="main" class="large-8 medium-8 columns" role="main">
+		    <main id="main" class="large-8 medium-12 columns" role="main">
 		    
 		    
 			    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+
+
+
+
+			    	<!-- try adding pagination -->
 			 
 					<!-- To see additional archive styles, visit the /parts index directory -->
 					<?php get_template_part( 'parts/loop', 'archive' ); ?>
+					
 				    
 				<?php endwhile; ?>	
 
