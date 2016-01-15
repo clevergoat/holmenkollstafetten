@@ -1632,12 +1632,12 @@ h6 {
     font-size: 1rem; } }
 
 a {
-  color: #8a8a8a;
+  color: #0056b8;
   text-decoration: none;
   line-height: inherit;
   cursor: pointer; }
   a:hover, a:focus {
-    color: #777777; }
+    color: #8a8a8a; }
   a img {
     border: 0; }
 
@@ -1862,10 +1862,10 @@ kbd {
       background-color: #2b2b4a;
       color: #fff; }
   .button.secondary {
-    background-color: #777;
+    background-color: #0056b8;
     color: #fff; }
     .button.secondary:hover, .button.secondary:focus {
-      background-color: #5f5f5f;
+      background-color: #004593;
       color: #fff; }
   .button.success {
     background-color: #3adb76;
@@ -1900,11 +1900,11 @@ kbd {
         border-color: #1b1b2f;
         color: #1b1b2f; }
     .button.hollow.secondary {
-      border: 1px solid #777;
-      color: #777; }
+      border: 1px solid #0056b8;
+      color: #0056b8; }
       .button.hollow.secondary:hover, .button.hollow.secondary:focus {
-        border-color: #3c3c3c;
-        color: #3c3c3c; }
+        border-color: #002b5c;
+        color: #002b5c; }
     .button.hollow.success {
       border: 1px solid #3adb76;
       color: #3adb76; }
@@ -2289,10 +2289,10 @@ select {
       background-color: #2b2b4a;
       color: #fff; }
   .button-group.secondary .button {
-    background-color: #777;
+    background-color: #0056b8;
     color: #fff; }
     .button-group.secondary .button:hover, .button-group.secondary .button:focus {
-      background-color: #5f5f5f;
+      background-color: #004593;
       color: #fff; }
   .button-group.success .button {
     background-color: #3adb76;
@@ -2337,7 +2337,7 @@ select {
   .callout.primary {
     background-color: #ddddeb; }
   .callout.secondary {
-    background-color: #ebebeb; }
+    background-color: #cee5ff; }
   .callout.success {
     background-color: #e1faea; }
   .callout.alert {
@@ -2424,7 +2424,7 @@ select {
     width: 0;
     height: 0;
     border: inset 5px;
-    border-color: #8a8a8a transparent transparent;
+    border-color: #0056b8 transparent transparent;
     border-top-style: solid;
     position: absolute;
     top: 0.75rem;
@@ -2435,7 +2435,7 @@ select {
     width: 0;
     height: 0;
     border: inset 5px;
-    border-color: transparent #8a8a8a transparent transparent;
+    border-color: transparent #0056b8 transparent transparent;
     border-right-style: solid;
     float: left;
     margin-left: 0;
@@ -2446,7 +2446,7 @@ select {
     width: 0;
     height: 0;
     border: inset 5px;
-    border-color: transparent transparent transparent #8a8a8a;
+    border-color: transparent transparent transparent #0056b8;
     border-left-style: solid; }
   .dropdown.menu .is-dropdown-submenu-parent.is-left-arrow.opens-inner .submenu {
     right: 0;
@@ -2507,7 +2507,7 @@ select {
   background: #36365d;
   color: #fefefe; }
   .label.secondary {
-    background: #777;
+    background: #0056b8;
     color: #fefefe; }
   .label.success {
     background: #3adb76;
@@ -2979,13 +2979,39 @@ FOOTER NAV
 /*********************
 BUTTONS
 *********************/
+.pamelding {
+  display: inline-block;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 0;
+  padding: 0.85em 1em;
+  margin: 0 1rem 1rem 0;
+  font-size: 0.9rem;
+  background-color: #f4f4f4;
+  color: #000;
+  color: #fefefe;
+  background-color: #36365d;
+  padding: 1.5em 1em; }
+  [data-whatinput='mouse'] .pamelding {
+    outline: 0; }
+  .pamelding:hover, .pamelding:focus {
+    background-color: #36365d;
+    color: #000; }
+
 .button {
   transition: none;
-  font-size: 0.875rem; }
+  font-size: 0.875rem;
+  color: #0a0a0a;
+  background-color: #D3D3D3; }
   .button:hover {
     transition: none;
-    color: #0a0a0a;
-    background-color: #D3D3D3; }
+    color: #fefefe;
+    background-color: #36365d; }
 
 .hero {
   display: inline-block;
@@ -3045,6 +3071,9 @@ POSTS & CONTENT STYLES
 .entry-content img {
   max-width: none;
   height: auto; }
+
+.entry-content .single {
+  max-width: 100%; }
 
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;
@@ -3252,7 +3281,9 @@ SIDEBARS & ASIDES
     .widget ul li {
       list-style: none; }
       .widget ul li a {
-        color: #999; }
+        color: #0056b8; }
+        .widget ul li a:hover {
+          color: #8a8a8a; }
 
 .widget_search {
   margin-bottom: 0; }

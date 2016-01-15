@@ -2,7 +2,7 @@
 <a href="<?php the_permalink() ?>" style="display: block;">
 <article id="post-<?php the_ID(); ?>" <?php post_class('large-12 column bottom-gray'); ?> role="article" style="background-color: white; margin-bottom: 20px;">
 	<div class="row nyheter">
-	<section class="entry-content medium-4 large-4 columns show-for-medium" itemprop="articleBody" style="padding: 0;">
+	<section class="entry-content medium-4 large-4 columns show-for-medium" itemprop="articleBody" style="padding: 0; overflow: hidden;">
 		<?php the_post_thumbnail('thumbnail'); ?>
 		
 	</section> <!-- end article section -->

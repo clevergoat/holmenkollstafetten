@@ -4,7 +4,7 @@
 
 		<div id="inner-content" class="row">
 	
-			<main id="main" class="large-8 medium-8 columns bottom-gray first" role="main">
+			<main id="main" class="large-8 medium-8 columns first" role="main">
 				<header>
 					<h1 class="archive-title"><?php _e("[:no]Søk resultater til:[:en]Search results for:[:]", "jointstheme"); ?> <?php echo esc_attr(get_search_query()); ?></h1>
 				</header>

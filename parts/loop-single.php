@@ -5,7 +5,7 @@
 		<?php get_template_part( 'parts/content', 'byline' ); ?>
     </header> <!-- end article header -->
 					
-    <section class="entry-content" itemprop="articleBody">
+    <section class="entry-content single" itemprop="articleBody">
 		<?php // the_post_thumbnail('full'); ?>
 		<?php the_post_thumbnail('full', array( 'class'	=> "single")); ?>
 		<?php the_content(); ?>
