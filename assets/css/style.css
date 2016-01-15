@@ -3279,6 +3279,7 @@ SIDEBARS & ASIDES
   .widget ul {
     margin: 0; }
     .widget ul li {
+      margin-bottom: 0.75rem;
       list-style: none; }
       .widget ul li a {
         color: #0056b8; }
