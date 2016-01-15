@@ -3006,12 +3006,12 @@ BUTTONS
 .button {
   transition: none;
   font-size: 0.875rem;
-  color: #0a0a0a;
-  background-color: #D3D3D3; }
+  color: #fefefe;
+  background-color: #36365d; }
   .button:hover {
     transition: none;
-    color: #fefefe;
-    background-color: #36365d; }
+    color: #0a0a0a;
+    background-color: #D3D3D3; }
 
 .hero {
   display: inline-block;
@@ -3279,7 +3279,7 @@ SIDEBARS & ASIDES
   .widget ul {
     margin: 0; }
     .widget ul li {
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.50rem;
       list-style: none; }
       .widget ul li a {
         color: #0056b8; }
