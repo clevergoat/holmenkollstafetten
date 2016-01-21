@@ -28,30 +28,18 @@
     </div>
   </div>
   <div id="inner-footer" class="row">
-
-    <form>
-<!--       <div class="nyhetsbrev-footer small-12 large-3 large-push-9 columns" style=""> 
-
-        <p><?php _e("[:no]Nyhetsbrev[:en]Newsletter[:]"); ?></p>
-        <div class="input-group">
-          <input class="input-group-field" type="text" placeholder="<?php _e("[:no]e-post[:en]Email[:]"); ?>" style="height: 40px;">
-          <div class="input-group-button">
-            <input type="submit" class="button" value="<?php _e("[:no]Meld på[:en]Sign up[:]"); ?>">
-          </div>
-        </div>
-
-      </div> -->
-
-
-    </form>
+<div class="nyhetsbrev-footer small-12 large-3 large-push-9 columns" style="">
+      <p>Nyhetsbrev</p>
+<?php echo _e(do_shortcode('[mc4wp_form id="466"]')); ?>
+</div>
 <!-- add large-pull-3 when nyhetsbrev is ready and uncommented -->
-    <div class="small-6 large-2  columns" style="">
+    <div class="small-6 large-2 large-pull-3 columns" style="">
       <?php joints_footer_links1(); ?>
     </div>
-    <div class="small-6 large-2  columns" style="">
+    <div class="small-6 large-2 large-pull-3 columns" style="">
       <?php joints_footer_links2(); ?>
     </div>
-    <div class="small-6 large-2 columns" style="">
+    <div class="small-6 large-2 large-pull-3 columns" style="">
       <?php joints_footer_links3(); ?>
     </div>
     <div class="kontakt-footer small-6 large-2 large-pull-3 columns" style="">

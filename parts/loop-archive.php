@@ -1,6 +1,7 @@
 
 <a href="<?php the_permalink() ?>" style="display: block;">
 <article id="post-<?php the_ID(); ?>" <?php post_class('large-12 column bottom-gray'); ?> role="article" style="background-color: white; margin-bottom: 20px;">
+    
 	<div class="row nyheter">
 	<section class="entry-content medium-4 large-4 columns show-for-medium" itemprop="articleBody" style="padding: 0; overflow: hidden;">
 		<?php the_post_thumbnail('thumbnail'); ?>
@@ -12,14 +13,21 @@
 		<?php get_template_part( 'parts/content', 'byline' ); ?>
 		
 	</header> <!-- end article header -->
-					
-		<?php the_excerpt(10); ?>
 	
+		<?php
+		if(has_excerpt()) {
+		    the_excerpt();
+		}
+		
+		echo "<p>Les mer...</p>";
+		
+		?>
+		
+		
 						
-	<footer class="article-footer">
-    	<p class="tags"><?php the_tags('<span class="tags-title">' . __('Tags:', 'jointstheme') . '</span> ', ', ', ''); ?></p>
-	</footer> <!-- end article footer -->
+<!-- end article footer -->
 	</div>	
-	</div>	    						
+	</div>	
+	
 </article> <!-- end article -->
 </a>
