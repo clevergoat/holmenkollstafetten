@@ -3065,6 +3065,9 @@ POSTS & CONTENT STYLES
 .byline {
   color: #999; }
 
+.callout {
+  margin: 0; }
+
 .single .wp-post-image {
   margin-bottom: 1rem; }
 
@@ -3074,8 +3077,6 @@ POSTS & CONTENT STYLES
 
 .entry-content .single {
   max-width: 100%; }
-  .entry-content .single img {
-    max-width: 100%; }
 
 .entry-content .alignleft, .entry-content img.alignleft {
   margin-right: 1.5em;

@@ -15,7 +15,7 @@
 			    	<!-- try adding pagination -->
 			 
 					<!-- To see additional archive styles, visit the /parts index directory -->
-					<?php get_template_part( 'parts/loop', 'archive' ); ?>
+					<?php get_template_part( 'parts/loop', 'list' ); ?>
 					
 				    
 				<?php endwhile; ?>	

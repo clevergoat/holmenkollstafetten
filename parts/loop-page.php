@@ -5,8 +5,13 @@
 	</header> <!-- end article header -->
 					
     <section class="entry-content single" itemprop="articleBody">
-	    <?php the_content(); ?>
-	    <?php wp_link_pages(); ?>
+    <?php if (has_post_thumbnail()) {
+    	the_post_thumbnail('full', array( 'class'	=> "single"));
+    	the_content();
+    } else {
+    	the_content();
+    }
+	wp_link_pages(); ?>
 	</section> <!-- end article section -->
 						
 	<footer class="article-footer">

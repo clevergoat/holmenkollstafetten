@@ -41,3 +41,12 @@ require_once(get_template_directory().'/assets/translation/translation.php');
 
 // Customize the WordPress admin
 // require_once(get_template_directory().'/assets/functions/admin.php'); 
+
+ add_image_size( 'list-thumb', 260, 260, TRUE );
+
+ add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+function my_custom_sizes( $sizes ) {
+return array_merge( $sizes, array(
+'list-thumb' => __( 'List Thumb' ),
+) );
+}
