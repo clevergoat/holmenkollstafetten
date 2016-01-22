@@ -2906,6 +2906,14 @@ select {
     height: 100%; }
 
 /*********************
+LØYPEKART SPECIFIC
+*********************/
+ol li {
+  font-size: 0.875rem; }
+  ol li span {
+    float: right; }
+
+/*********************
 NAVIGATION STYLES
 *********************/
 .hidden {
