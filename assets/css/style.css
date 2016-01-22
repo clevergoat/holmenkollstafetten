@@ -3317,6 +3317,12 @@ FOOTER STYLES
     .kontakt-footer a i, .nyhetsbrev-footer a i {
       margin-right: 7px; }
 
+.nyhetsbrev-footer .button {
+  background-color: #D3D3D3;
+  color: #0a0a0a; }
+  .nyhetsbrev-footer .button:hover {
+    background-color: #f4f4f4; }
+
 .footer.sponsors {
   background-color: #fefefe; }
 
