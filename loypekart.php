@@ -30,7 +30,7 @@ Template Name: Løypekart
                 <option selected disabled><?php _e("[:no]Velg etappe[:en]Choose leg[:]"); ?></option>
             </select>
 
-
+            
             <?php 
             $args = array( 'post_type' => 'etapper' );
             $recent_posts = new WP_Query( $args );
@@ -63,7 +63,7 @@ Template Name: Løypekart
             <div id="chart_div"></div> 
 
             <div class="videowrapper">
-                <iframe src="https://www.youtube.com/embed/xA4OIlhueuw" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/J7fNMdiA87w" width="640" height="360" frameborder="0" allowfullscreen></iframe>
             </div>
         </main> <!-- end #main -->
         <script>

@@ -15,7 +15,7 @@ Template Name: Hjem
 		<div class="hks-timer show-for-medium" style="position: absolute; left: 0; right: 0; bottom: 50px; margin: 0 auto; text-align: center; width: 550px;">
 			<h3 style="font-weight: 200; text-shadow: 0 1px 0 #fff; "><?php _e("[:no]Norges største friidrettsarrangement.[:en]Norway's largest athletics event.[:]"); ?></h3>
 			<h3 style="font-weight: 600;"><?php _e("[:no]Lørdag 7. mai, 2016[:en]Saturday 7. May, 2016[:]"); ?></h3>
-			<?php echo _e(do_shortcode('[:no][easy_countdowner name="demo_countdowner" theme="default" animation="ticks" end_date="2016-05-07" end_time="00:00:00" day_label="Dager" hour_label="Timer" minute_label="Minutter" second_label="Sekunder"][:en][easy_countdowner name="demo_countdowner" theme="default" animation="ticks" end_date="2016-05-07" end_time="00:00:00" day_label="Days" hour_label="Hours" minute_label="Minutes" second_label="Seconds"[:]'));?>
+			<?php echo _e(do_shortcode('[:no][easy_countdowner name="demo_countdowner" theme="default" animation="ticks" end_date="2016-05-07" end_time="14:00:00" day_label="Dager" hour_label="Timer" minute_label="Minutter" second_label="Sekunder"][:en][easy_countdowner name="demo_countdowner" theme="default" animation="ticks" end_date="2016-05-07" end_time="14:00:00" day_label="Days" hour_label="Hours" minute_label="Minutes" second_label="Seconds"[:]'));?>
 		</div>
 	</div>
 
